@@ -10,6 +10,44 @@ return {
   { "j-hui/fidget.nvim", event = "LspAttach", opts = {} },
   { "dmmulroy/ts-error-translator.nvim", ft = { "typescript", "typescriptreact" }, opts = {} },
   {
+    "mrcjkb/rustaceanvim",
+    keys = {
+      {
+        "<leader>rr",
+        function()
+          vim.cmd.RustLsp("runnables")
+        end,
+        ft = "rust",
+        desc = "Rust Runnables",
+      },
+      {
+        "<leader>rt",
+        function()
+          vim.cmd.RustLsp("testables")
+        end,
+        ft = "rust",
+        desc = "Rust Testables",
+      },
+      {
+        "<leader>re",
+        function()
+          vim.cmd.RustLsp("explainError")
+        end,
+        ft = "rust",
+        desc = "Explain Error",
+      },
+      {
+        "<leader>rm",
+        function()
+          vim.cmd.RustLsp("expandMacro")
+        end,
+        ft = "rust",
+        desc = "Expand Macro",
+      },
+    },
+  },
+  { "folke/which-key.nvim", opts = { spec = { { "<leader>r", group = "rust" } } } },
+  {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.icons" },
